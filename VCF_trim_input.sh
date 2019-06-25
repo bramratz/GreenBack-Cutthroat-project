@@ -1,24 +1,15 @@
 #!/bin/bash
 
-# SHARCNet submission script to get read coverage per individual per locus.
-
-# Requires:
-# 1 - vcf file in working directory. Ideally filtered for missing individuals
-# missing loci, and minor allele frequency.
-# Output format has to be identical to filename after --out (see form below)
-# vcftools --vcf  variants_rbtassem_0.5_maf0.05.recode.vcf\
-# --extract-FORMAT-info AD --out variants_gbct.recode
-# 2 - partial version of the filter paraolgs script:
-# partial_filter_paralogs.R 
+# Bash script for submitting a job to the SHARCNet Graham queue
 
 ### ---------- Job configuration --------------------------------------------
 
 # Run dependent and permanent parameters
 # will be run on complete nodes NOT partial
 
-#SBATCH --nodes=1                                           # number of nodes to use
-#SBATCH --time=00-03:00:00                         # time (DD-HH:MM:SS)
-#SBATCH --account=def-emandevi               # account name
+#SBATCH --nodes=1                       # number of nodes to use
+#SBATCH --time=00-03:00:00              # time (DD-HH:MM:SS)
+#SBATCH --account=def-emandevi          # account name
 #SBATCH --job-name="GBCT vcf filtering" # name of job
 
 #SBATCH --ntasks-per-node=32            # taks per node (one core per node)
